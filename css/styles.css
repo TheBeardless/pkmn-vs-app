@@ -1,3 +1,30 @@
+:root {
+  --pokemon-yellow: #ffcb05;
+  --pokemon-blue: #2a75bb;
+}
+
 body {
   text-align: center;
+  background-color: var(--pokemon-blue);
+  font-family: "Press Start 2P", cursive;
+}
+
+h1 {
+  font-family: pokemon, Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  color: var(--pokemon-yellow);
+  text-shadow: 0px 0px 10px black;
+}
+
+h2 {
+  border-style: solid none solid none;
+  border-color: #ffcb05;
+  padding: 5px;
+}
+
+.new-pokemon-button {
+  background: var(--pokemon-yellow);
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
 }
