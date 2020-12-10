@@ -5,26 +5,95 @@
 
 body {
   text-align: center;
+  margin: 0;
+  height: 100%;
   background-color: var(--pokemon-blue);
-  font-family: "Press Start 2P", cursive;
+  font-family: "Press Start 2P", cursive, Arial, Helvetica, sans-serif;
+}
+
+.hidden {
+  /* display: none; */
 }
 
 h1 {
-  /* font-family: pokemon, Arial, Helvetica, sans-serif; */
-  font-size: 60px;
   color: var(--pokemon-yellow);
   text-shadow: 0px 0px 10px black;
+  margin: 20px;
 }
 
-h2 {
-  border-style: solid none solid none;
-  border-color: #ffcb05;
-  padding: 10px;
+.start-container {
+  align-items: center;
+  justify-content: center;
 }
 
-.new-pokemon-button {
+.start-button {
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  padding: 40px;
+  margin: 0px;
+  width: fit-content;
+}
+
+.start-button::before {
+  content: "";
+  margin-top: 100%;
+}
+
+.start-button:hover {
+  box-shadow: 0px 0px 50px white;
+}
+
+/* This doesn't work.  */
+.vs {
+  vertical-align: bottom;
+}
+
+.swap-button {
   background: var(--pokemon-yellow);
-  color: black;
-  font-weight: bold;
-  font-size: 20px;
+  border-radius: 50%;
+  height: auto;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swap-button:hover {
+  box-shadow: 0px 0px 15px black;
+}
+
+#bothPokemon {
+  width: 90%;
+  display: flex;
+  /* display: none; */
+}
+
+.wrapper {
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.pkmn-name {
+  font-size: 120%;
+  text-transform: uppercase;
+}
+
+.progress {
+  margin: 5px;
+}
+
+.progress-bar {
+  background-color: #28a745;
+  border: 1px solid white;
+}
+
+.stat {
+  text-align: left;
+}
+
+.statValue {
+  text-align: right;
 }

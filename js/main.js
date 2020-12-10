@@ -15,6 +15,8 @@ class Pokemon {
   attack(opponent) {
     console.log("-----Attacking-----");
   }
+  // let health = document.getElementById("health")
+  // health.value -= {attackDamage};
 }
 
 const pokemon1 = new Pokemon();
@@ -25,22 +27,19 @@ const pokemon1 = new Pokemon();
 // $attackSpeed
 const pokemon2 = new Pokemon();
 // $name,
-// $healhpoints,
+// $healhpoints
 // $attackDamage,
 // $defence,
 // $attackSpeed
 
-// random API generation:
-// https://pokeapi.co/api/v2/pokemon/{rand(1-151)}
-
 const randomNumber = Math.floor(Math.random() * 151) + 1;
 const randomPokemon = `https://pokeapi.co/api/v2/pokemon/${randomNumber}`;
-// console.log(randomPokemon);
 
 const pokemonData1 = $.get(randomPokemon, (data) => {
   $("#pkmn1-img").attr("src", data.sprites.front_default);
   $("#pkmn1-name").append(data.name);
   $("#pkmn1-hp").append(data.stats[0].base_stat);
+  $("#pkmn1-hp-bar").append(data.stats[0].base_stat);
   $("#pkmn1-attack").append(data.stats[1].base_stat);
   $("#pkmn1-defence").append(data.stats[2].base_stat);
   $("#pkmn1-speed").append(data.stats[5].base_stat);
@@ -50,6 +49,7 @@ const pokemonData2 = $.get(randomPokemon, (data) => {
   $("#pkmn2-img").attr("src", data.sprites.front_default);
   $("#pkmn2-name").append(data.name);
   $("#pkmn2-hp").append(data.stats[0].base_stat);
+  $("#pkmn2-hp-bar").append(data.stats[0].base_stat);
   $("#pkmn2-attack").append(data.stats[1].base_stat);
   $("#pkmn2-defence").append(data.stats[2].base_stat);
   $("#pkmn2-speed").append(data.stats[5].base_stat);
