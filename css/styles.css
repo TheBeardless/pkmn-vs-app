@@ -25,7 +25,7 @@ h1 {
 
 .start-container {
   display: flex;
-  display: none;
+  /* display: none; */
 }
 
 .start-button {
@@ -33,17 +33,15 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 100%;
   padding: 20px;
   margin: 40px;
-  /* width: 430px; */
   font-size: 2em;
 }
 
-.start-button::before {
+/* .start-button::before {
   content: "";
   margin-top: 100%;
-}
+} */
 
 .start-button:hover {
   box-shadow: 0px 0px 50px white;
@@ -60,7 +58,7 @@ h1 {
 
 .swap-button {
   background: var(--pokemon-yellow);
-  border-radius: 50%;
+  /* border-radius: 50%; */
   height: auto;
   width: fit-content;
   /* display: flex; */
