@@ -14,7 +14,6 @@ class Pokemon {
   }
   attack(opponent) {
     console.log("-----Attacking-----");
-    // roll for crit chance => 8 = attack*2
     critChance = Math.floor(Math.random() * 10) + 1;
     attackDamage =
       (((2 * this.level) / 5 + 2) *
@@ -80,40 +79,50 @@ const pokemonData2 = $.get(randomPokemon2, (data) => {
   $("#pkmn2-speed").append(pokemon2.speed);
 });
 
+///// TODO - Update log.
 console.log("testing");
+// console.log(pokemon2);
+$("eventLogArea").append(`<p>This is a test</p>`);
 
+//// TODO - Each button press creates a new pokemon entry.
 $("#btn-swap-1").on("click", () => {
-  console.log("button clicked");
+  console.log("swap1 button clicked");
 });
 
 $("#btn-swap-2").on("click", () => {
+  console.log("swap2 button clicked");
   pokemonData2;
 });
 
+//////////
 //// Main Function
+//////////
 
-// press battle. (that doesn't exist yet)
-// define who goes first = hero (no logic yet, just say pokemon1)
-// define who's getting damaged = enemy (as above, pokemon2)
+$("battle-button").on("click", battle);
 
-// $("battle-button").on("click")
+// who goes first - hardcoded for now
+let currentPokemon = pokemon1;
 
-// console.log(pokemon2);
-// // const attackDamage =
-
-// const currentPokemon = pokemon1;
-
-// function battle() {
-// if (currentPokemon = pokemon1){
-//     pokemon2.currentHP = pokemon2.currentHP - pokemon1.attackDamage;
-//     updateHealthBarLogic;
-//     currentPokemon = pokemon2;
-// } else {
-//   pokemon1.currentHP = pokemon1.currentHP - pokemon2.attackDamage;
-//   updateHealthBarLogic;
-//   currentPokemon = pokemon1
-// }
-// if (pokemon1.currentHP <= 0){
-
-// }
-// }
+function battle() {
+  if ((currentPokemon = pokemon1)) {
+    pokemon2.currentHP = pokemon2.currentHP - pokemon1.attackDamage;
+    //updateHealthBarLogic;
+    currentPokemon = pokemon2;
+    $("eventLogArea").append(
+      `${pokemon1.name} did ${pokemon1.attackDamage} damage`
+    );
+    if (pokemon1.currentHP <= 0) {
+      $("eventLogArea").append(`${pokemon1.name} has fainted, you win!`);
+    }
+  } else {
+    pokemon1.currentHP = pokemon1.currentHP - pokemon2.attackDamage;
+    //updateHealthBarLogic;
+    currentPokemon = pokemon1;
+    $("eventLogArea").append(
+      `${pokemon1.name} did ${pokemon1.attackDamage} damage`
+    );
+    if (pokemon1.currentHP <= 0) {
+      $("eventLogArea").append(`${pokemon1.name} has fainted, you win!`);
+    }
+  }
+}
