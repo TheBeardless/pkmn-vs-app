@@ -13,8 +13,8 @@
 
 ### The app must:
 
-- Implement responsive design (i.e. it should be fully functional on desktop, tablet, mobile, etc)
-- Have one or more complex user interface modules such as a carousel, drag and drop, a sticky nav, tooltips, etc
+- [] Implement responsive design (i.e. it should be fully functional on desktop, tablet, mobile, etc)
+- [] Have one or more complex user interface modules such as a carousel, drag and drop, a sticky nav, tooltips, etc
 
 ## The app can also have:
 

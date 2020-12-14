@@ -24,54 +24,26 @@
       crossorigin="anonymous"
     />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <title>Pokemon VS</title>
   </head>
   <body>
-    <div id="container">
-      <!-- Menu Options -->
-      <div class="col">
-        <div class="dropdown hidden">
-          <button
-            class="btn btn-warning dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Menu
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </div>
-      </div>
+    <div class="container">
       <!-- Title -->
       <div>
-        <h1 id="heading" class="h1">Pokemon VS</h1>
+        <h1 id="heading" class="h1">Pokemon</h1>
       </div>
 
-      <!-- Start / Battle Button-->
+      <!-- Start Button-->
       <div class="container start-container">
-        <div class="row row-cols-3">
-          <div></div>
-          <div>
-            <button
-              type="button"
-              class="col btn btn-success start-button"
-              data-bs-toggle="tooltip"
-              data-bs-placement="top"
-              title="Press to start playing"
-            >
-              START!
-            </button>
-          </div>
-          <div></div>
-        </div>
+        <button
+          type="button"
+          class="col btn btn-success start-button"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Press to start playing"
+        >
+          >START<
+        </button>
       </div>
 
       <!-- Both Pokemon -->
@@ -90,35 +62,37 @@
           </div>
           <!-- Pokemon Image -->
           <div>
-            <img id="pkmn1-img" src="..." class="img-fluid" alt="pkmn1-image" />
+            <img id="pkmn1-img" src="" class="img-fluid" alt="pkmn1-image" />
           </div>
           <!-- Wrapper for data -->
           <div class="wrapper">
             <!-- Pokemon name -->
             <div id="pkmn1-name" class="pkmn-name"></div>
-            <!-- Progress Bar -->
-            <div class="progress">
-              <div
-                class="progress-bar"
-                id="pkmn1-hp-bar"
-                role="progressbar"
-                style="width: 100%"
-                aria-valuenow="90"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              ></div>
+            <!-- HP Area -->
+            <div class="hp-area">
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  id="pkmn1-hp-bar"
+                  role="progressbar"
+                  style="width: 100%"
+                  aria-valuenow="90"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
             </div>
-            <!-- Wrapper for stats -->
-            <div class="wrapper-stats hidden">
+            <!-- Wrapper for stats (other than hp) -->
+            <div class="wrapper-other-stats hidden">
               <!-- Stats -->
-              <div class="row row-cols-2 allStats">
+              <div class="row row-cols-2">
                 <div class="col stat">HP:</div>
                 <div class="col statValue" id="pkmn1-hp"></div>
-                <div class="col stat">Attack:</div>
+                <div class="col stat">Att:</div>
                 <div class="col statValue" id="pkmn1-attack"></div>
-                <div class="col">Defence:</div>
+                <div class="col stat">Def:</div>
                 <div class="col statValue" id="pkmn1-defence"></div>
-                <div class="col stat">Speed:</div>
+                <div class="col stat">Spd:</div>
                 <div class="col statValue" id="pkmn1-speed"></div>
               </div>
             </div>
@@ -129,7 +103,7 @@
         <div class="col pkmn" id="pkmn2">
           <div>
             <button
-              id="btn-swap-1"
+              id="btn-swap-2"
               type="button"
               class="btn btn-warning swap-button"
               title="Reroll for another Pokemon"
@@ -138,7 +112,7 @@
             </button>
           </div>
           <!-- Pokemon Image -->
-          <img id="pkmn2-img" src="..." class="img-fluid" alt="pkmn2-image" />
+          <img id="pkmn2-img" src="" class="img-fluid" alt="pkmn2-image" />
           <!-- Wrapper for data -->
           <div class="wrapper">
             <!-- Pokemon name2-->
@@ -156,16 +130,18 @@
               ></div>
             </div>
             <!-- Wrapper for stats -->
-            <div class="wrapper-stats hidden">
+            <div class="hp-stat">
               <!-- Stats -->
-              <div class="row row-cols-2 allStats">
+              <div class="row row-cols-2">
                 <div class="col stat">HP:</div>
                 <div class="col statValue" id="pkmn2-hp"></div>
-                <div class="col stat">Attack:</div>
+              </div>
+              <div class="row row-cols-2 allStats">
+                <div class="col stat">Att:</div>
                 <div class="col statValue" id="pkmn2-attack"></div>
-                <div class="col">Defence:</div>
+                <div class="col stat">Def:</div>
                 <div class="col statValue" id="pkmn2-defence"></div>
-                <div class="col stat">Speed:</div>
+                <div class="col stat">Spd:</div>
                 <div class="col statValue" id="pkmn2-speed"></div>
               </div>
             </div>
@@ -173,10 +149,14 @@
         </div>
       </div>
       <!-- Event Log Console -->
-      <div id="eventLog" class="container">
-        <div></div>
+      <div class="container">
+        <div class="eventLogContainer hidden">
+          <label for="eventLogConsole">Log:</label>
+          <p class="eventLogArea">Testing</p>
+        </div>
       </div>
     </div>
-    <script src="./js/main.js"></script>
+    <script type="module" src="./js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </body>
 </html>
