@@ -31,6 +31,7 @@ function newPokemon(i) {
     );
 
     updatePokemonDom(pokemon[i]);
+    setInitialTurn();
   });
 }
 
@@ -54,13 +55,13 @@ function attack() {
       50 +
     2;
 
-  $("eventLogArea").append(`${attackingPokemon.name} did ${damage} damage`);
+  $(".eventLogArea").append(`${attackingPokemon.name} did ${damage} damage`);
 
   defendingPokemon.currentHP = defendingPokemon.currentHP - damage;
 
   if (defendingPokemon.currentHP >= 0) {
     defendingPokemon.fainted = true;
-    $("eventLogArea").append(`${defendingPokemon.name} has fainted, you win!`);
+    $(".eventLogArea").append(`${defendingPokemon.name} has fainted, you win!`);
   }
 }
 
@@ -89,15 +90,12 @@ function attack() {
 // }
 
 function setInitialTurn() {
-  console.log("setting initial turn");
-  const pokemon1test = pokemon1;
-  const pokemon2test = pokemon2;
-  const attackingId = pokemon2
-    ? pokemon[pokemon2].speed > pokemon[pokemon1].speed
-    : pokemon1;
-  this.attackingPokemon = pokemon[attackingId];
-  this.defendingPokemon =
-    pokemon[pokemon2 ? attackingId === pokemon1 : pokemon1];
+  if (pokemon[pokemon1] !== undefined && pokemon[pokemon2] !== undefined) {
+    const attackingId =
+      pokemon[pokemon2].speed > pokemon[pokemon1].speed ? pokemon2 : pokemon1;
+    attackingPokemon = pokemon[attackingId];
+    defendingPokemon = pokemon[attackingId === pokemon1 ? pokemon2 : pokemon1];
+  }
 }
 
 function nextTurn() {
@@ -137,21 +135,32 @@ function battle() {
 
 function battleLoop() {}
 
+// const baseURL = `https://pokeapi.co/api/v2/pokemon/`;
+//
+// var pokemon = [];
+//
+// var pokemon1 = 0;
+// var pokemon2 = 1;
+//
+// // Probably not the best way but having these global will make this so easy
+// var attackingPokemon;
+// var defendingPokemon;
+
 const baseURL = `https://pokeapi.co/api/v2/pokemon/`;
 
-var pokemon = [null, null];
+let pokemon = [];
 
-var pokemon1 = 0;
-var pokemon2 = 1;
+const pokemon1 = 0;
+const pokemon2 = 1;
 
 // Probably not the best way but having these global will make this so easy
-var attackingPokemon;
-var defendingPokemon;
+let attackingPokemon;
+let defendingPokemon;
 
 newPokemon(pokemon1);
 newPokemon(pokemon2);
 
-setInitialTurn();
+// setInitialTurn();
 
 ///// TODO - Update log.
 console.log("testing");
