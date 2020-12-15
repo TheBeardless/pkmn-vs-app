@@ -58,7 +58,6 @@ h1 {
 
 .swap-button {
   background: var(--pokemon-yellow);
-  /* border-radius: 50%; */
   height: auto;
   width: fit-content;
   /* display: flex; */
